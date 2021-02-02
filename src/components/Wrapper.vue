@@ -7,7 +7,7 @@
 
 <script>
 
-import Timer from '../components/Timer'
+import Timer from './Timer'
 
 export default {
 

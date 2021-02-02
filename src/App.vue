@@ -6,7 +6,7 @@
 
 <script>
 
-import Wrapper from './layout/Wrapper'
+import Wrapper from './components/Wrapper'
 
 export default {
 
