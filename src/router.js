@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import RedLight from './components/pages/RedLight'
-import YellowLight from './components/pages/YellowLight'
-import GreenLight from './components/pages/GreenLight'
+ import Lights from './components/Lights'
 
 Vue.use(Router)
 
@@ -13,17 +11,17 @@ const router = new Router({
     {
       path: '/red',
       name: 'RedLight',
-      component: RedLight,
+      component: Lights,
     },
     {
       path: '/yellow',
       name: 'YellowLight',
-      component: YellowLight
+      component: Lights
     },
     {
       path: '/green',
       name: 'GreenLight',
-      component: GreenLight
+      component: Lights
     },
     { 
       path: '*', 

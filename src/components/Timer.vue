@@ -12,28 +12,43 @@ import { mapActions } from 'vuex'
 export default {
     data () {
         return {
+            
         }
     },
     computed: {
-        ...mapGetters(['colorState']),
-        ...mapGetters(['timeState']),
+        ...mapGetters([
+            'colorState', 
+            'timeState',
+            'pathState'
+        ]),
+       // ...mapGetters(['timeState']),
     },
     methods: {
-        ...mapActions(['switchTimeAction']),
-        ...mapActions(['switchColorAction']),
+        ...mapActions([
+            'switchTimeAction', 
+            'switchColorAction',
+            'switchPathAction'
+        ]),
+        //...mapActions(['switchColorAction']),
 
     },
-    mounted: function() {
-    //    window.onload = this.switchColorAction('test')
+
+    updated: function(){
+        //this.switchPathAction('notTruePath')
+    },
+    created: function() {
         
-             
+        //this.switchPathAction(this.$route.path)
+            
     },
     watch: {
 
-        colorState: function() {
-            if (this.colorState === 'red') {
+        pathState: function(value) {
+            
+            if (value === '/red') {
+
                 this.switchTimeAction(10.0)
-                
+            
                 let redTimer = setInterval(() => {
                     this.switchTimeAction((parseFloat(this.timeState) - 0.1).toFixed(1))
                 }, 100)
@@ -41,10 +56,10 @@ export default {
                 setTimeout(() => {
                     clearInterval(redTimer)
                 }, 10000)
-              
+    
             }
 
-            if (this.colorState === 'yellow') {
+            if (value === '/yellow') {
                 this.switchTimeAction(3.0)
 
                 let yellowTimer = setInterval(() => {
@@ -56,7 +71,7 @@ export default {
                 }, 3000)
             }
 
-            if (this.colorState === 'green') {
+            if (value === '/green') {
                 this.switchTimeAction(15.0)
 
                 let greenTimer = setInterval(() => {
