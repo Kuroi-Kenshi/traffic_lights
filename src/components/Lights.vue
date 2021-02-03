@@ -25,6 +25,9 @@ export default {
             'timeState',
             'pathState'
         ]),
+        switchPath: function(){
+            return this.switchPathAction(this.$route.path)
+        },
 
     },
 
@@ -37,9 +40,6 @@ export default {
 
     },
 
-    updated: function(){
-        this.switchPathAction(this.$route.path)
-    },
     created: function() {
         this.switchPathAction(this.$route.path)
     },
@@ -72,7 +72,7 @@ export default {
                             this.styles.styles_red.splice(2,1)
                         }
                         clearInterval(blink_interval)
-                    }, 3000)
+                    }, 3500)
 
                 }, 6500)
                
@@ -131,7 +131,7 @@ export default {
                             this.styles.styles_green.splice(2,1)
                         }
                     clearInterval(blink_interval)
-                    }, 3000)
+                    }, 3500)
 
                 }, 11500)
             }
